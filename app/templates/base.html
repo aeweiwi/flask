@@ -1,9 +1,8 @@
 {% extends 'bootstrap/base.html' %}
 
-
 {% block title %}
   {% if title %}
-    {{title}} - Microblog {% else %} Welcome to Microblog {% endif %}
+    {{title}} - Microblog {% else %} Welcome to Microblog
   {% endif %}
 {% endblock %}
 
@@ -36,8 +35,8 @@
             <li> <a href="{{ url_for('login') }}"> Login </a></li>
           {% else %}
             <li> <a href="{{ url_for('user', username=current_user.username) }}"> Profile </a> </li>
-          <li> <a href="{{ url_for('logout') }}"> Logout </a> </li>
-        {% endif %}
+            <li> <a href="{{ url_for('logout') }}"> Logout </a> </li>
+          {% endif %}
         </ul>
       </div>
     </div>
