@@ -3,6 +3,7 @@ from config import Config
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_login import LoginManager
+from flask_bootstrap import Bootstrap
 from logging.handlers import RotatingFileHandler
 import os
 import logging
@@ -13,7 +14,7 @@ db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 login = LoginManager(app)
 login.login_view = 'login'
-
+bootstrap = Bootstrap(app)
 time_format = '%(asctime)s %(levelname)s: %(message)s [in %(pathname)s: %(lineno)d]'
 if not app.debug:
     if not os.path.exists('logs'):
@@ -24,6 +25,6 @@ if not app.debug:
     app.logger.addHandler(file_handler)
     app.logger.setLevel(logging.INFO)
     app.logger.info('Microblog startup')
-    
+
 
 from app import routes, models, errors
